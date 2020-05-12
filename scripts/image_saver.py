@@ -16,6 +16,7 @@ def image_saver(data):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     cv2.imwrite(os.path.join(save_dir, "{0:04d}.png".format(i)), image)
+    i = i + 1
     print('Image saved!')
 
 
