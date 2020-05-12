@@ -1,6 +1,6 @@
 <launch>
     <arg name="image" default="/traffic/image"/>
-    <param name="image_path" value="/root/Shared/cctv.png"/>
+    <param name="image_path" value="/root/Shared/sa.jpg"/>
     <param name="scale" value="0.5" type="double"/>
 
   

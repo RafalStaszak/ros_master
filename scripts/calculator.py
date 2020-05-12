@@ -27,7 +27,7 @@ def subtract(x, y):
 def multiply(x, y):
     rospy.wait_for_service('multiply')
     try:
-        proxy = rospy.ServiceProxy('multiplyt', TwoNumbers)
+        proxy = rospy.ServiceProxy('multiply', TwoNumbers)
         resp1 = proxy(x, y)
         return resp1.sum
     except rospy.ServiceException, e:
