@@ -4,10 +4,12 @@ import rospy
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 import cv2
+import time
 
 
 def image_publisher():
-    pub = rospy.Publisher('/image', Image, queue_size=10)
+    pub = rospy.Publisher('/image', Image)
+    time.sleep(1.0)
     image_path = rospy.get_param('image_path')
     scale = rospy.get_param('scale')
     image = cv2.imread(image_path)
@@ -15,8 +17,11 @@ def image_publisher():
     height = int(image.shape[0] * scale)
     image = cv2.resize(image, (width, height))
     message = CvBridge().cv2_to_imgmsg(image)
+    print 'w h'
+    print width
+    print height
     pub.publish(message)
-
+    print 'published'
 
 if __name__ == '__main__':
     rospy.init_node('image_publisher')
