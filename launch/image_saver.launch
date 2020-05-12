@@ -1,0 +1,8 @@
+<launch>
+    <arg name="image" default="/traffic/image_annotated"/>
+    <param name="save_dir" value="/root/Shared/images"/>
+
+    <node pkg="ros_master" name="image_saver" type="image_saver.py" output="screen">
+        <remap from="/image" to="$(arg image)"/>
+    </node>
+</launch>

@@ -17,11 +17,8 @@ def image_publisher():
     height = int(image.shape[0] * scale)
     image = cv2.resize(image, (width, height))
     message = CvBridge().cv2_to_imgmsg(image)
-    print 'w h'
-    print width
-    print height
     pub.publish(message)
-    print 'published'
+    print 'Image published'
 
 if __name__ == '__main__':
     rospy.init_node('image_publisher')
