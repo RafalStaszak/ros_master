@@ -1,0 +1,10 @@
+<launch>
+    <arg name="image" default="/traffic/image"/>
+    <param name="image_path" value=".jpg"/>
+    <param name="scale" value="0.5" type="double"/>
+
+  
+    <node pkg="ros_master" name="publish_image" type="publish_image.py" output="screen">
+        <remap from="/image" to="$(arg image)"/>
+    </node>
+</launch>
